@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Account Recovery</h2>
+<div class="row">
+    <div class="span4">
+        <p>
+            Forgot your password? No problem. To recover your account, enter the e-mail 
+            address you signed up with. We will send you a link to reset your password 
+            so you can login again.
+        </p>
+    </div>
+    <div class="span6 offset1">
+        <form class="form-horizontal well" method="post" action="/account/recovery">
+          <div class="control-group">
+            <label class="control-label" for="email">Email Address</label>
+            <div class="controls">
+              <input type="text" id="email" name="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn">Send Link</button>
+            </div>
+          </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

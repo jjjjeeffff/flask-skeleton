@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block base_class %}landing{% endblock %}
+
+{% block content %}
+<div class="row" id="landing-slider">
+    <div class="span12">
+        <img src="/images/landing/1.jpg" id="slide" />
+        <div id="landing-label">
+            <p><strong>Woah doggy</strong>, this puppy is <em>so tired!</em></p><br />
+            <p>I mean, would you look at that yawn?</p>
+        </div>
+        <div id="signin-form-cont">
+            <form class="form-horizontal" action="/session" method="post">
+                <h2>Sign in</h2>
+                <input type="hidden" name="next" value="{{ next or '' }}" />
+                <div class="control-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                        <input type="text" class="input-medium" id="email" name="email" placeholder="E-mail">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="pass">Password</label>
+                    <div class="controls">
+                        <input type="password" class="input-medium" id="pass" name="pass" placeholder="Password">
+                        <span class="help-block"><a href="/account/recovery">Forgot your password?</a></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember"> Remember me
+                        </label>
+                        <button type="submit" class="btn">Sign in</button>
+                    </div>
+                </div>
+            </form>
+        </div> <!-- /#signup-form-cont -->
+    </div> <!-- /.span12 -->
+</div>
+
+<div class="row">
+    <div class="span7">
+        <article id="welcome">
+        <h2>Welcome</h2>
+        <p>
+        This is a new Flask skeleton. The purpose of this skeleton is to jump-start
+        a basic Flask site with a user authentication system. Users can sign-up, 
+        sign-in, sign-out, listen to <a href="http://www.youtube.com/watch?v=iqu132vTl5Y" target="_blank">The Sign</a>,
+        stay signed-in, verify their e-mail, and recover their password. All that's left
+        is an administrative interface (if necessary) and an actual site.
+        </p>
+
+        <p>
+        Take it easy when running through all of this, as it's in an early stage and
+        hasn't been revised much. But, knowing that it won't be seen by too many eyes
+        anyways I put it online.
+        </p>
+        </article>
+    </div>
+    <div class="span5">
+        <div id="signup-form-cont">
+            <h2>Sign up for free!</h2>
+            <form class="form-horizontal" action="/account/create" method="post">
+                {{ form.csrf_token }}
+                <div class="control-group">
+                    <label class="control-label" for="email">Email</label>
+                    <div class="controls">
+                        <input type="text" value="{% if form.new_email.data %}{{ form.new_email.data }}{% endif %}" class="input-medium" id="new-email" name="new_email" placeholder="E-mail">
+                    </div>
+                    {% if form.new_email.errors %}
+                        <div class="errors">
+                            <p><small>{{ form.new_email.errors | first }}</small></p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="new-pass">Password</label>
+                    <div class="controls">
+                        <input type="password" class="input-medium" id="new-pass" name="password" placeholder="Password">
+                    </div>
+                    {% if form.password.errors %}
+                    <div class="errors">
+                        <p><small>{{ form.password.errors | first }}</small></p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="new-pass-confirm"></label>
+                    <div class="controls">
+                        <input type="password" class="input-medium" id="new-pass-confirm" name="password_confirm" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="checkbox">
+                            <input type="checkbox" name="agree" value="yes"> I agree to the <a href="#terms-of-service" data-toggle="modal" data-target="#modal-tos">Terms of Service</a>
+                        </label>
+                    </div>
+                    <div class="errors errors-checkbox">
+                    {% if form.agree.errors %}
+                        {% for error in form.agree.errors %}
+                            <p><small>{{ error }}</small></p>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+
+                    <div class="controls">
+                        <button type="submit" class="btn">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

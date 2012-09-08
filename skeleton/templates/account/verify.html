@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if verified_user %}
+        <h2>Account Verified</h2>
+        Thanks for verifiying your account at <strong>{{ verified_user.user.email }}</strong>!
+        All that's left is filling out your profile information.
+    {% endif %}
+{% endblock %}

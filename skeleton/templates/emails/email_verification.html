@@ -1,0 +1,8 @@
+{% extends 'email_base.html' %}
+
+{% block content %}
+Thanks for signing up! In order to continue, we need to validate your e-mail address. Do this by clicking or visiting the following URL in your browser:
+<br />
+<br />
+<a href="http://127.0.0.1:5000/account/verify/{{ key }}" target="_blank">http://127.0.0.1:5000/account/verify/{{ key }}</a>
+{% endblock %}

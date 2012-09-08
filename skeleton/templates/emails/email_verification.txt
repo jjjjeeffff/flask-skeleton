@@ -1,0 +1,6 @@
+Thanks for signing up! In order to continue, we need to validate your e-mail address. Do this by visiting the following URL in your browser:
+
+http://127.0.0.1:5000/account/verify/{{ key }}
+
+Thanks,
+WaitStaffNow.com

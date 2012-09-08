@@ -25,3 +25,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+# Apple!
+.DS_Store
+
+# App logs
+*.log

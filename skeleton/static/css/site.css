@@ -1,0 +1,240 @@
+body {
+    background: url(/images/bg.png);
+}
+
+h2 {
+    margin-bottom: .5em;
+}
+
+.container {
+    background: #fff;
+}
+
+#mast-head .container {
+    background: none;
+    position:relative;
+}
+
+#mast-head {
+}
+
+#mast-head h1 {
+    height: 120px;
+}
+
+#mast-head h1 a {
+    display: block;
+    width: 580px;
+    height: 126px;
+    background: url(/images/logo-trans.png) center center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 184px;
+    z-index: 10;
+}
+
+.hidden { display: none; }
+
+#content {
+    padding: 2em;
+    -webkit-box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, .3);
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, .3);
+    border-top: none;
+}
+
+footer#end {
+    color: #999;
+    text-align: center;
+    font-size: small;
+    padding: 3em 0 6em 0;
+    margin-top: 20px;
+}
+
+/* signin form */
+#signin-form-cont {
+    position: absolute;
+    background-color:rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 30px 20px 0 0;
+    right: 10px;
+    top: 8px;
+    width: 320px;
+    height: 254px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.control-group div.errors {
+    /* padding-left: 160px; */
+    margin: -10px 0 10px 0;
+    height: 12px;
+    width: 140px;
+    text-align: right;
+}
+
+#signup-form-cont div.errors.errors-checkbox {
+    margin-left: 120px;
+}
+
+#signup-form-cont div.errors p small {
+    color: #fff;
+}
+
+#signin-form-cont a {
+    color: #fff;
+    font-weight: bold;
+}
+
+#signin-form-cont h2 {
+    margin: 0 0 1em 30px;
+    padding: 0;
+    line-height: 1;
+}
+
+#signup-form-cont {
+    padding: .8em 0 .3em 0;
+    margin: -4px 12px 0 30px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background: #45484d; /* Old browsers */
+    background: -moz-linear-gradient(top,  #45484d 0%, #000000 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+
+    color: #fff;
+}
+
+#signup-form-cont form {
+    padding-top: 1em;
+}
+
+#signup-form-cont .control-label {
+    padding-right: 20px;
+    width: 140px;
+}
+
+#signup-form-cont .controls {
+    margin-left: 0;
+}
+
+#signup-form-cont .checkbox {
+    padding-left: 178px;
+    padding-bottom: 1em;
+}
+
+#signup-form-cont .btn {
+    margin-left: 159px;
+}
+
+#signup-form-cont span.help-block {
+    font-size: smaller;
+    padding-left: 159px;
+}
+
+#signup-form-cont a {
+    color: #fff;
+    font-weight: bold;
+}
+
+#signup-form-cont h2 {
+    margin: .5em 0 .25em 1em;
+}
+
+#signup-form-cont h2,
+#signin-form-cont h2 {
+    text-shadow: 0px -1px 2px #000;
+}
+
+#landing-slider {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 0 1em 0;
+    width: 940px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 0;
+
+}
+
+#content.container.landing { 
+    padding: 0 0 2em 0;
+    margin-top: 0; 
+}
+
+#slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 300px;
+    -webkit-border-radius: 0 0 6px 6px;
+    -moz-border-radius: 0 0 6px 6px;
+    border-radius: 0 0 6px 6px;
+}
+
+#landing-label {
+    position: absolute;
+    left: 10px;
+    bottom: 50px;
+}
+
+#landing-label p {
+    background: rgba(255, 255, 255, .8);
+    display: inline;
+    line-height: 1.25;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+div.alert {
+    margin: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+#welcome {
+    background: #fff;
+    padding: 1em;
+}
+
+/* Profile conrols in mast-head */
+#account-controls {
+    position: absolute;
+    right: -36px;
+    top: 38px;
+    width: 180px;
+    height: 60px;
+    background: rgba(0, 0, 0, .1);
+}
+
+.round {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}
+
+#profile-details {
+    float: left;
+    padding: 12px 6px 10px 12px;
+}
+
+#profile-details a {
+    display: block;
+    font-weight: bold;
+    color: #000;
+}
+
+footer a {
+    color: #000;
+    font-weight: bold;
+}
