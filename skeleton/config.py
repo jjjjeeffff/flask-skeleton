@@ -12,7 +12,7 @@ import os
 
 class Config(object):
     DEBUG = True
-    TESTING= True
+    TESTING = True
     ADMINS = frozenset(['you@youremail.com'])
     SECRET_KEY = 'YOUR-CRAZY-AWESOME-SECRET-SAUCE'
     SALT = 'YOUR-SUPER-SALTY-POTATO-CHIPS'
@@ -27,6 +27,7 @@ class Config(object):
     MAIL_DEBUG = True
     MAIL_FAIL_SILENTLY = False
 
+
 class ProductionConfig(Config):
     TESTING = False
     DEBUG = False
@@ -34,6 +35,7 @@ class ProductionConfig(Config):
     # Flask-SQLAlchemy setup
     SQLALCHEMY_DATABASE_URI = 'mysql://youruser:yourpass@localhost/database'
     SQLALCHEMY_POOL_RECYCLE = 10
+
 
 class DevelopmentConfig(Config):
     DEBUG = True
@@ -53,6 +55,7 @@ class DevelopmentConfig(Config):
     MAIL_DEBUG = False
     MAIL_FAIL_SILENTLY = True
     MAIL_DEFAULT_SENDER = 'you@you.com'
+
 
 class TestingConfig(Config):
     CSRF_ENABLED = False

@@ -120,7 +120,7 @@ class TestViews(object):
 
     def test_email_verification(self):
         '''Testing e-mail verification process'''
-        
+
         # Test invalid key
         rv = self.app.get('/account/verify/abc')
         assert 'already been validated' in rv.data
@@ -151,12 +151,14 @@ class TestViews(object):
         self.db.session.commit()
 
         # Test invalid user
-        data = { 'email': 'test@test.com' }
-        rv = self.app.post('/account/recovery', data=data, follow_redirects=True)
+        data = {'email': 'test@test.com'}
+        rv = self.app.post('/account/recovery', data=data,
+                           follow_redirects=True)
         assert 'No user with that' in rv.data
 
-        data = { 'email': 'testing@test.com' }
-        rv = self.app.post('/account/recovery', data=data, follow_redirects=True)
+        data = {'email': 'testing@test.com'}
+        rv = self.app.post('/account/recovery', data=data,
+                           follow_redirects=True)
         assert 'check your e-mail and follow the instructions.' in rv.data
 
         # Test password reset page (key not checked yet)
@@ -164,25 +166,22 @@ class TestViews(object):
         assert 'Reset Password' in rv.data
 
         # Test password reset submit (mismatched passwords)
-        data = {
-                'password': 'some_pass',
-                'password_confirm': 'some_unmatched_pass'
-                }
-        rv = self.app.post('/account/recovery/somekey', data=data, follow_redirects=True)
+        data = {'password': 'some_pass',
+                'password_confirm': 'some_unmatched_pass'}
+        rv = self.app.post('/account/recovery/somekey', data=data,
+                           follow_redirects=True)
         assert 'Passwords must match' in rv.data
 
         # Test password reset submit (invalid key checked)
-        data = {
-                'password': 'some_pass',
-                'password_confirm': 'some_pass'
-                }
-        rv = self.app.post('/account/recovery/somekey', data=data, follow_redirects=True)
+        data = {'password': 'some_pass',
+                'password_confirm': 'some_pass'}
+        rv = self.app.post('/account/recovery/somekey', data=data,
+                           follow_redirects=True)
         assert 'no longer valid' in rv.data
 
         # Test valid reset
-        data = {
-                'password': 'some_pass',
-                'password_confirm': 'some_pass'
-                }
-        rv = self.app.post('/account/recovery/testkey', data=data, follow_redirects=True)
+        data = {'password': 'some_pass',
+                'password_confirm': 'some_pass'}
+        rv = self.app.post('/account/recovery/testkey', data=data,
+                           follow_redirects=True)
         assert 'successfully updated' in rv.data

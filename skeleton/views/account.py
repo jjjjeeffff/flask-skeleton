@@ -54,8 +54,8 @@ def create_account():
         ]
 
         # Send e-mail
-        send('email_verification', 'Welcome to your Flask skeleton site!', 
-                [user.email], user=user, key=key)
+        send('email_verification', 'Welcome to your Flask skeleton site!',
+             [user.email], user=user, key=key)
         db.session.add(user)
 
     else:
@@ -77,8 +77,9 @@ def create_account_success():
 def verify_email(key):
     """Verifies an e-mail address based on a previously determined key.
     The key is deleted and user's level updated."""
-    user_key = UserMeta.query.filter_by(key='email_ver_key') \
-            .filter_by(val=key).first()
+    user_key = UserMeta.query \
+        .filter_by(key='email_ver_key') \
+        .filter_by(val=key).first()
     if user_key:
         db.session.delete(user_key)
         user_key.user.level = 1
@@ -108,11 +109,12 @@ def account_key_generator():
         flash('No user with that e-mail address exists, please try again.')
         return redirect(url_for('account.account_recovery_request'))
     # Delete any existing key
-    existing_keys = UserMeta.query.filter_by(key='password_rec_key', user_id=user.id)
+    existing_keys = UserMeta.query \
+        .filter_by(key='password_rec_key', user_id=user.id)
     if existing_keys:
         for key in existing_keys:
             db.session.delete(key)
-     
+
     # Generate password recovery key
     key = str(random.getrandbits(128))
     user.user_meta = [
@@ -120,8 +122,8 @@ def account_key_generator():
     ]
 
     # E-mail user
-    send('password_recovery', 'Password Recovery', 
-            [user.email], user=user, key=key)
+    send('password_recovery', 'Password Recovery',
+         [user.email], user=user, key=key)
 
     flash('All set! Please check your e-mail and follow the instructions.')
     return redirect(url_for('default.index'))
@@ -142,9 +144,10 @@ def reset_password(key):
     form = PasswordResetForm(request.form)
     if form.validate():
         pass_key = UserMeta.query.filter_by(key='password_rec_key',
-                val=key).first()
+                                            val=key).first()
         if not pass_key:
-            flash("Your password reset key is no longer valid, please try again.")
+            flash("Your password reset key is no longer valid, \
+                   please try again.")
             return redirect(url_for('default.index'))
 
         # Update password
@@ -153,6 +156,7 @@ def reset_password(key):
         # Delete used key
         db.session.delete(pass_key)
 
-        flash("Your password has been successfully updated, please login below.")
+        flash("Your password has been successfully updated, \
+               please login below.")
         return redirect(url_for('default.index'))
     return account_recovery(key, form)

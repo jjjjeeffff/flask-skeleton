@@ -9,6 +9,7 @@
 """
 import skeleton
 
+
 class TestMisc(object):
 
     @classmethod
@@ -31,5 +32,3 @@ class TestMisc(object):
     def test_mail(self):
         '''Testing mail with no templates'''
         skeleton.mail.send('no_template', 'Test Subject', ['test@test.com'])
-
-
