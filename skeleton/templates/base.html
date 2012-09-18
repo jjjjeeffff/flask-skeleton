@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Flask Skeleton Site</title>
+    <title>{% if page_title %}{{ page_title }} - {% endif %}{{ config['SITE_TITLE'] }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="{{ config['SITE_DESCRIPTION'] }}">
     <meta name="author" content="">
 
     <!-- Le styles -->
@@ -38,7 +38,7 @@
                 </div>
             </div>
             {% endif %}
-            <h1 class="span12"><a href="/"><span class="hidden">Wait Staff Now</span></a></h1>
+            <h1 class="span12"><a href="/" title="{{ config['SITE_TITLE'] }}"><span class="hidden">{{ config['SITE_TITLE'] }}</span></a></h1>
         </div>
     </header>
     <div id="content" class="container round {% block base_class %}{% endblock %}">
@@ -46,7 +46,7 @@
         {% endblock %}
     </div> <!-- /container -->
     <footer id="end">
-    &copy; 2012 Flask Skeleton Site. View our <a href="#terms-of-service" data-toggle="modal" data-target="#modal-tos">Terms of Service</a>
+    &copy; 2012 {{ config['SITE_TITLE'] }}. View our <a href="#terms-of-service" data-toggle="modal" data-target="#modal-tos">Terms of Service</a>
     </footer>
  
     <div class="hidden modal" id="modal-tos" tabindex="-1" role="dialog" aria-labelledby="termsOfService" aria-hidden="true">

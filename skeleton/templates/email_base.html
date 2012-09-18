@@ -149,7 +149,7 @@ body, td { font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; 
                 <td id="header" class="w640" width="640" align="center" bgcolor="#213a61">
     
     <div align="center" style="text-align: center">
-        <h1>Flask Skeleton Site</h1> 
+        <h1>{{ config['SITE_TITLE'] }}</h1> 
     </div>
     
     
@@ -178,7 +178,7 @@ body, td { font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; 
                                         {% endblock %}
                                         <br /><br />
                                         Thanks!<br />
-                                        <strong><em>Flask Skeleton Site</em></strong>
+                                        <strong><em>{{ config['SITE_TITLE'] }}</em></strong>
                                         </multiline>
                                     </div>
                                 </td>
@@ -202,7 +202,7 @@ body, td { font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; 
         <tr>
             <td class="w30" width="30"></td>
             <td class="w580" width="360" valign="top">
-            <span class="hide"><p id="permission-reminder" align="left" class="footer-content-left"><span>You received this e-mail because you have an account at some guy/gal's fancy Flask site. It's probably totally cool though because they're probably super attractive. And smart.</span></p></span>
+                <span class="hide"><p id="permission-reminder" align="left" class="footer-content-left"><span>You received this e-mail because you have an account at {{ config['SITE_TITLE'] }}.</span></p></span>
             </td>
             <td class="hide w0" width="60"></td>
             <td class="hide w0" width="160" valign="top">
@@ -221,5 +221,5 @@ body, td { font-family: 'Helvetica Neue', Arial, Helvetica, Geneva, sans-serif; 
 </tbody></table>
 
 <p class="copyright" align="center">
-&copy; 2012 Flask Skeleton Site.
+&copy; 2012 {{ config['SITE_TITLE'] }}.
 </p></body></html>

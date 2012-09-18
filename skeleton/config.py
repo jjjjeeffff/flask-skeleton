@@ -11,6 +11,10 @@ import os
 
 
 class Config(object):
+    # Site meta
+    SITE_TITLE = 'Flask-Skeleton'
+    SITE_DESCRIPTION = 'A Flask jumpstart site example.'
+
     DEBUG = True
     TESTING = True
     ADMINS = frozenset(['you@youremail.com'])
@@ -18,7 +22,7 @@ class Config(object):
     SALT = 'YOUR-SUPER-SALTY-POTATO-CHIPS'
 
     CSRF_ENABLED = True
-    CSRF_SESSION_KEY = "YOUR-NEAT-SESSION-KEY"
+    CSRF_SESSION_KEY = 'YOUR-NEAT-SESSION-KEY'
 
     # Flask-SQLAlchemy setup, default to sqlite in-memory database
     SQLALCHEMY_DATABASE_URI = 'sqlite://'

@@ -10,7 +10,7 @@
     :copyright: (c) 2012 by Jeff Long
 """
 import os
-from flask import Flask, render_template, request_started
+from flask import Flask, render_template, request_started, g
 
 # Extensions
 from flask.ext.sqlalchemy import SQLAlchemy
