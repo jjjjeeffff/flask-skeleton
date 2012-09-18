@@ -1,2 +1,2 @@
-from skeleton.app import db
+from skeleton import db
 db.create_all()
