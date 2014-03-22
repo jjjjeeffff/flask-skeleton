@@ -63,6 +63,8 @@ Enables logging and fixes serving static files from the dev server
 if app.config['DEBUG']:
     import logging
     working_dir = os.path.dirname(os.path.abspath(__file__))
+    if not os.path.exists('%s/logs' % working_dir):
+        os.mkdir('%s/logs' % working_dir)
     file_handler = logging.FileHandler('%s/logs/app.log' % working_dir)
     file_handler.setLevel(logging.WARNING)
     app.logger.addHandler(file_handler)
