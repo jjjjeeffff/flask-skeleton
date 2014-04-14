@@ -9,16 +9,16 @@
 """
 
 
-from flask.ext.wtf import Form, Required, PasswordField, validators
+from wtforms import Form, PasswordField, validators
 
 
 class PasswordResetForm(Form):
     """Definition for the password reset form """
     password = PasswordField('Password', [
         validators.Length(min=6, max=20),
-        Required(),
+        validators.Required(),
         validators.EqualTo('password_confirm', message='Passwords must match')
     ])
     password_confirm = PasswordField('Confirm Password', [
         validators.Length(min=6, max=20),
-        Required()])
+        validators.Required()])

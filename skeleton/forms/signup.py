@@ -7,7 +7,7 @@
 
     :copyright: (c) 2012 by Jeff Long
 """
-from flask.ext.wtf import Form, TextField, Required, BooleanField, \
+from wtforms import Form, TextField, BooleanField, \
     PasswordField, validators, ValidationError
 from ..models.user import User
 
@@ -25,15 +25,15 @@ class SignupForm(Form):
     """Definition for the registration form """
     new_email = TextField('Email Address', [
         validators.Length(min=6, max=120),
-        Required(),
+        validators.Required(),
         validators.Email(message='Invalid e-mail address.'),
         signup_email_check])
     password = PasswordField('Password', [
         validators.Length(min=6, max=20),
-        Required(),
+        validators.Required(),
         validators.EqualTo('password_confirm', message='Passwords must match')
     ])
     password_confirm = PasswordField('Confirm Password', [
         validators.Length(min=6, max=20),
-        Required()])
-    agree = BooleanField('I accept the TOS', [Required()])
+        validators.Required()])
+    agree = BooleanField('I accept the TOS', [validators.Required()])
