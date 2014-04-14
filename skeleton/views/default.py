@@ -26,8 +26,9 @@ def index():
     if current_user.is_authenticated():
         return render_template('index/authed.html')
     else:
-        form = SignupForm(session.get('form'))
+        form = SignupForm()
         if session.get('form'):
+            form = SignupForm(**session.get('form'))
             # Re-validate form here to determine errors to display
             form.validate()
             session.pop('form', None)

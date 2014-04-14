@@ -18,7 +18,7 @@ class User(db.Model):
     id = db.Column('id', db.Integer, primary_key=True)
     email = db.Column(db.String(80), unique=True)
     pwhash = db.Column(db.String(60))
-    level = db.Column(db.Integer(1))
+    level = db.Column(db.Integer)
 
     def get_id(self):
         return self.id
